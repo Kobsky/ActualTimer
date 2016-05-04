@@ -4,8 +4,8 @@ namespace Kobsky.ActualTimer
 {
 	public sealed class ActualTimerAppCore
 	{
-		public Timer Timer { get; }
-		public ITimerRepository TimerRepository { get; }
+		public Timer Timer { get; set; }
+		public ITimerRepository TimerRepository { get; set; }
 
 		public TimeSpan Value => Timer.Value;
 
