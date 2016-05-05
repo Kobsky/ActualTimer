@@ -13,7 +13,7 @@
 ITimerRepository
 -
 -
-GetTodayOrDefault():Timer
+LoadTodayOrDefault():Timer
 SaveOrUpdate(Timer):void
 </panel_attributes>
     <additional_attributes/>
@@ -29,7 +29,7 @@ SaveOrUpdate(Timer):void
     <panel_attributes>Timer
 -
 +Value:TimeSpan
-~OnTick:Action
+~OnTick:EventHandler
 ~OnMinuteTick:Action&lt;Timer&gt;
 -
 ~Tick(int):void
@@ -51,7 +51,7 @@ SaveOrUpdate(Timer):void
 +-Value:TimeSpan
 -Timer
 -TimerRepository
-+OnTick:Action
++OnTick:EventHandler
 +OnStartStop:Action&lt;bool&gt;
 -
 +Ctor(ITimerRepository)

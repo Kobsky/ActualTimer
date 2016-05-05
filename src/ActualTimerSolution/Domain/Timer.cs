@@ -6,25 +6,25 @@ namespace Kobsky.ActualTimer
 	/// <summary xml:lang="ru">
 	/// Таймер который использует <see cref="ActualTimerAppCore"/>
 	/// </summary>
-	public sealed class Timer
+	public sealed class Timer:IDisposable
 	{
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
 		/// Текущее значение таймера
 		/// </summary>
-		public TimeSpan Value;
+		public TimeSpan Value { get; set; }
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
 		/// Событие которое генерируется при каждом тике таймера
 		/// </summary>
-		internal Action OnTick;
+		internal EventHandler OnTick;
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
 		/// Событие которое генериуется при приросте таймера на минуту
 		/// </summary>
-		internal Action<Timer> OnMinuteTick;
+		internal EventHandler<Timer> OnMinuteTick;
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
@@ -53,10 +53,10 @@ namespace Kobsky.ActualTimer
 			_previous = Value;
 			Value = Value.Add(new TimeSpan(0,0,0,0,milliseconds));
 
-			OnTick?.Invoke();
+			OnTick?.Invoke(this, null);
 
 			if(Value.Minutes > _previous.Minutes)
-				OnMinuteTick?.Invoke(this);
+				OnMinuteTick?.Invoke(this,this);
 		}
 
 		/// <summary>to do </summary>
@@ -81,6 +81,16 @@ namespace Kobsky.ActualTimer
 		public void Stop()
 		{
 			_timer?.Dispose();
+		}
+
+		/// <summary>to do </summary>
+		/// <summary xml:lang="ru">
+		/// Так как класс за кулисами использует <see cref="System.Threading.Timer"/> то необходимо реализовать <c>Dispose</c>
+		/// </summary>
+		public void Dispose()
+		{
+			// ReSharper disable once UseNullPropagation
+			if (_timer != null) _timer.Dispose();
 		}
 	}
 }

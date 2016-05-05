@@ -31,15 +31,11 @@ namespace DomainTests
 		public void TickTest()
 		{
 			Timer timer = new Timer();
-			timer.OnTick += Coutn;
+			timer.OnTick += (sender, args) => { _counter++; };
 			timer.Tick(100);
 
 			Assert.AreEqual(1, _counter);
 			Assert.AreEqual(new TimeSpan(0,0,0,0,100), timer.Value );
-		}
-		private void Coutn()
-		{
-			_counter++;
 		}
 
 		[Test]
@@ -49,7 +45,7 @@ namespace DomainTests
 			{
 				Value = new TimeSpan(0, 0, 0, 59, 0)
 			};
-			timer.OnMinuteTick += OnMinuteTick;
+			timer.OnMinuteTick += (sender, timer1) => { _counter++; };
 
 			timer.Tick(1000);
 			timer.Tick(1000);
@@ -57,11 +53,6 @@ namespace DomainTests
 
 			Assert.AreEqual(1, _counter);
 			Assert.AreEqual(new TimeSpan(0, 0, 1, 2, 0), timer.Value);
-		}
-
-		private void OnMinuteTick(Timer timer)
-		{
-			Coutn();
 		}
 
 		[Test]
@@ -77,12 +68,16 @@ namespace DomainTests
 
 			Assert.IsTrue(3 < _counter);
 		}
+		private void Coutn(object sender, EventArgs eventArgs)
+		{
+			_counter++;
+		}
 
 		[Test]
 		public void StopTest()
 		{
 			Timer timer = new Timer();
-			timer.OnTick += Coutn;
+			timer.OnTick += (sender, args) => { _counter++; };
 
 			timer.Start(10);
 			Thread.Sleep(100);
@@ -99,6 +94,16 @@ namespace DomainTests
 			Timer timer = new Timer();
 
 			Assert.DoesNotThrow(() => { timer.Stop(); });
+		}
+
+		[Test]
+		public void DisposableTest()
+		{
+			IDisposable timer = new Timer();
+
+			timer.Dispose();
+
+			Assert.IsNotNull(timer);
 		}
 	}
 }

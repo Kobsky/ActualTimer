@@ -15,7 +15,7 @@ namespace Kobsky.ActualTimer
 		/// <summary xml:lang="ru">
 		/// Время в миллисекундах, определяющие интервал срабатывания таймера
 		/// </summary>
-		public int TickMilliseconds = 200;
+		public int TickMilliseconds { get; set; } = 200;
 
 		/// <summary>to do</summary>
 		/// <summary xml:lang="ru">
@@ -27,13 +27,13 @@ namespace Kobsky.ActualTimer
 		/// <summary xml:lang="ru">
 		/// Событие генерирущееся при каждом изменении таймера
 		/// </summary>
-		public event Action OnTick;
+		public event EventHandler OnTick;
 
 		/// <summary>to do</summary>
 		/// <summary xml:lang="ru">
 		/// Событие генерирущиееся при каждом запуске и остановке таймера
 		/// </summary>
-		public event Action<bool> OnStartStop;
+		public event EventHandler<bool> OnStartStop;
 
 		/// <summary>Ctor</summary>
 		/// <summary xml:lang="ru">
@@ -58,7 +58,7 @@ namespace Kobsky.ActualTimer
 
 			TimerRepository = timerRepository;
 
-			var tempTimer = timerRepository.GetTodayOrDefault();
+			var tempTimer = timerRepository.LoadTodayOrDefault();
 			if (null == tempTimer)
 				throw new NullReturnNotAllowedException("ITimerRepository.GetTodayOrDefault method return null");
 			Timer = tempTimer;
@@ -71,10 +71,10 @@ namespace Kobsky.ActualTimer
 		/// </summary>
 		public void Start()
 		{
-			if (OnTick != null) Timer.OnTick += OnTick.Invoke;
-			Timer.OnMinuteTick += TimerRepository.SaveOrUpdate;
+			if (OnTick != null) Timer.OnTick += OnTick;
+			Timer.OnMinuteTick += (sender, timer) => { TimerRepository.SaveOrUpdate(timer); };
 			Timer.Start(TickMilliseconds);
-			OnStartStop?.Invoke(true);
+			OnStartStop?.Invoke(this,true);
 		}
 
 		/// <summary>to do </summary>
@@ -84,7 +84,7 @@ namespace Kobsky.ActualTimer
 		public void Stop()
 		{
 			Timer.Stop();
-			OnStartStop?.Invoke(false);
+			OnStartStop?.Invoke(this,false);
 		}
 	}
 }

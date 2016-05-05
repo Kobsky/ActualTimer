@@ -88,7 +88,7 @@ Start()</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-OnTick+=OnTick.Invoke</panel_attributes>
+OnTick+=OnTick</panel_attributes>
     <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -100,7 +100,7 @@ OnTick+=OnTick.Invoke</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-OnMinuteTick += TimerRepository.SaveOrUpdate</panel_attributes>
+OnMinuteTick += { TimerRepository.SaveOrUpdate }</panel_attributes>
     <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -108,11 +108,11 @@ OnMinuteTick += TimerRepository.SaveOrUpdate</panel_attributes>
     <coordinates>
       <x>150</x>
       <y>190</y>
-      <w>200</w>
+      <w>220</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-OnStartStop(true)</panel_attributes>
+OnStartStop(this,true)</panel_attributes>
     <additional_attributes>30.0;50.0;70.0;50.0;70.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>

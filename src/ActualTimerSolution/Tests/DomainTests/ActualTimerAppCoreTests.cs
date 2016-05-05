@@ -17,7 +17,7 @@ namespace DomainTests
 		{
 			var timer = new Timer();
 			var timerRepository = Substitute.For<ITimerRepository>();
-			timerRepository.GetTodayOrDefault().Returns(timer);
+			timerRepository.LoadTodayOrDefault().Returns(timer);
 
 			ActualTimerAppCore core = new ActualTimerAppCore(timerRepository);
 
@@ -43,7 +43,7 @@ namespace DomainTests
 		public void CtorGetTodayTimer()
 		{
 			var timerRepository = Substitute.For<ITimerRepository>();
-			timerRepository.GetTodayOrDefault()
+			timerRepository.LoadTodayOrDefault()
 				.Returns(new Timer {Value = new TimeSpan(50)});
 
 			ActualTimerAppCore core = new ActualTimerAppCore(timerRepository);
@@ -57,7 +57,7 @@ namespace DomainTests
 			NullReturnNotAllowedException ex = Assert.Throws<NullReturnNotAllowedException>(delegate
 			{
 				var timerRepository = Substitute.For<ITimerRepository>();
-				timerRepository.GetTodayOrDefault()
+				timerRepository.LoadTodayOrDefault()
 					.ReturnsNull();
 
 				// ReSharper disable once ObjectCreationAsStatement
@@ -71,7 +71,7 @@ namespace DomainTests
 		public void StartTest()
 		{
 			var timerRepository = Substitute.For<ITimerRepository>();
-			timerRepository.GetTodayOrDefault().Returns(new Timer());
+			timerRepository.LoadTodayOrDefault().Returns(new Timer());
 			ActualTimerAppCore core = new ActualTimerAppCore(timerRepository)
 			{
 				TickMilliseconds = 100
@@ -88,7 +88,7 @@ namespace DomainTests
 		public void ChangeTickMilliseconds()
 		{
 			var timerRepository = Substitute.For<ITimerRepository>();
-			timerRepository.GetTodayOrDefault().Returns(new Timer());
+			timerRepository.LoadTodayOrDefault().Returns(new Timer());
 			ActualTimerAppCore core = new ActualTimerAppCore(timerRepository)
 			{
 				TickMilliseconds = 100
@@ -111,12 +111,12 @@ namespace DomainTests
 		{
 			int counter = 0;
 			var timerRepository = Substitute.For<ITimerRepository>();
-			timerRepository.GetTodayOrDefault().Returns(new Timer());
+			timerRepository.LoadTodayOrDefault().Returns(new Timer());
 			ActualTimerAppCore core = new ActualTimerAppCore(timerRepository)
 			{
 				TickMilliseconds = 100
 			};
-			core.OnTick += () => { counter++; };
+			core.OnTick += (sender, args) => { counter++; };
 
 			core.Start();
 			Thread.Sleep(350);
@@ -131,13 +131,13 @@ namespace DomainTests
 		{
 			bool? startStop = null;
 			var timerRepository = Substitute.For<ITimerRepository>();
-			timerRepository.GetTodayOrDefault().Returns(new Timer());
+			timerRepository.LoadTodayOrDefault().Returns(new Timer());
 			ActualTimerAppCore core = new ActualTimerAppCore(timerRepository)
 			{
 				TickMilliseconds = 100
 			};
 
-			core.OnStartStop += b => { startStop = b; };
+			core.OnStartStop += (sender, b) => { startStop = b; };
 			core.Start();
 			Assert.AreEqual(true, startStop);
 			core.Stop();
@@ -152,7 +152,7 @@ namespace DomainTests
 				Value = new TimeSpan(0, 0, 0, 59, 810)
 			};
 			var timerRepository = Substitute.For<ITimerRepository>();
-			timerRepository.GetTodayOrDefault().Returns(timer);
+			timerRepository.LoadTodayOrDefault().Returns(timer);
 			ActualTimerAppCore core = new ActualTimerAppCore(timerRepository)
 			{
 				TickMilliseconds = 100

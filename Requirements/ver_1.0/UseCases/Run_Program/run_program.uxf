@@ -113,7 +113,7 @@ ITimerRepository</panel_attributes>
       <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-GetTodayOrDefault()</panel_attributes>
+LoadTodayOrDefault()</panel_attributes>
     <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>

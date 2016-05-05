@@ -9,7 +9,7 @@
 		/// Загружает таймер, который был сохранен сегодня, если сохраненных данных нету, то создает новый таймер
 		/// </summary>
 		/// <returns><see cref="Timer"/></returns>
-		Timer GetTodayOrDefault();
+		Timer LoadTodayOrDefault();
 
 		/// <summary>to do</summary>
 		/// <summary xml:lang="ru">
