@@ -2,8 +2,11 @@
 
 namespace Kobsky.ActualTimer
 {
-	/// <summary>
-	/// Used when ITimerRepository.GetTodayOrDefault method return null
+	/// <summary> 
+	/// to do
+	/// </summary>
+	/// <summary xml:lang="ru">
+	/// Возбуждается при создании экземпляра ActualTimerAppCore если ITimerRepository.GetTodayOrDefault возвращает null значение
 	/// </summary>
 	public class NullReturnNotAllowedException : Exception
 	{
