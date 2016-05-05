@@ -10,6 +10,12 @@ namespace Kobsky.ActualTimer
 	{
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
+		/// Текущее значение таймера
+		/// </summary>
+		public TimeSpan Value;
+
+		/// <summary>to do </summary>
+		/// <summary xml:lang="ru">
 		/// Событие которое генерируется при каждом тике таймера
 		/// </summary>
 		internal Action OnTick;
@@ -19,12 +25,6 @@ namespace Kobsky.ActualTimer
 		/// Событие которое генериуется при приросте таймера на минуту
 		/// </summary>
 		internal Action<Timer> OnMinuteTick;
-
-		/// <summary>to do </summary>
-		/// <summary xml:lang="ru">
-		/// Текущее значение таймера
-		/// </summary>
-		public TimeSpan Value;
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
