@@ -26,6 +26,12 @@ namespace Kobsky.ActualTimer
 		/// </summary>
 		public TimerState State => new TimerState {Date = Date, Value = Value};
 
+		/// <summary>to do</summary>
+		/// <summary xml:lang="ru">
+		/// Время в миллисекундах, определяющие интервал срабатывания таймера
+		/// </summary>
+		public int TickMilliseconds { get; set; } = 200;
+
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
 		/// Событие которое генерируется при каждом тике таймера
@@ -48,7 +54,7 @@ namespace Kobsky.ActualTimer
 		/// <summary xml:lang="ru">
 		/// <see cref="System.Threading.Timer"/> используемый <see cref="Timer"/> за кулисами, для работы
 		/// </summary>
-		private System.Threading.Timer _timer;
+		private readonly System.Threading.Timer _timer;
 
 		/// <summary>
 		/// Конструктор принимающий TimerState для восстановления значений таймера
@@ -58,22 +64,17 @@ namespace Kobsky.ActualTimer
 		{
 			Value = state.Value;
 			Date = state.Date;
+			_timer = new System.Threading.Timer(o => { Tick(); });
 		}
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
 		/// Метод вызывается для изменения текущего значения таймера
 		/// </summary>
-		/// <param name="milliseconds">
-		/// to do
-		/// <para>
-		/// <see cref="int"/> значение миллисекунд, на которое надо изменить текущее значение таймера
-		/// </para>
-		/// </param>
-		public void Tick(int milliseconds)
+		public void Tick()
 		{
 			_previous = Value;
-			Value = Value.Add(new TimeSpan(0,0,0,0,milliseconds));
+			Value = Value.Add(new TimeSpan(0,0,0,0,TickMilliseconds));
 
 			OnTick?.Invoke(this, null);
 
@@ -85,15 +86,9 @@ namespace Kobsky.ActualTimer
 		/// <summary xml:lang="ru">
 		/// Запускает таймер на выполнение
 		/// </summary>
-		/// <param name="milliseconds">
-		/// to do
-		/// <para>
-		/// <see cref="int"/> значение миллисекунд, указывающее интервал выполнения таймера
-		/// </para>
-		/// </param>
-		public void Start(int milliseconds)
+		public void Start()
 		{
-			_timer = new System.Threading.Timer(state => { Tick(milliseconds); },null, milliseconds, milliseconds);
+			_timer.Change(TickMilliseconds, TickMilliseconds);
 		}
 
 		/// <summary>to do </summary>
@@ -102,7 +97,7 @@ namespace Kobsky.ActualTimer
 		/// </summary>
 		public void Stop()
 		{
-			_timer?.Dispose();
+			_timer.Change(0, -1);
 		}
 
 		/// <summary>to do </summary>

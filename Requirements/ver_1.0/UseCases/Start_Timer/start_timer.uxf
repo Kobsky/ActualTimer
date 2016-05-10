@@ -135,7 +135,7 @@ OnStartStop(this,true)</panel_attributes>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
-Start(TickMilliseconds)</panel_attributes>
+Start()</panel_attributes>
     <additional_attributes>400.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
@@ -188,11 +188,11 @@ Start(TickMilliseconds)</panel_attributes>
     <coordinates>
       <x>890</x>
       <y>210</y>
-      <w>210</w>
+      <w>110</w>
       <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Tick(TickMilliseconds)</panel_attributes>
+Tick()</panel_attributes>
     <additional_attributes>30.0;40.0;60.0;40.0;60.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>

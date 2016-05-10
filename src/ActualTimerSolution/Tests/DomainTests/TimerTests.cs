@@ -35,7 +35,8 @@ namespace DomainTests
 		{
 			Timer timer = new Timer(new TimerState());
 			timer.OnTick += (sender, args) => { _counter++; };
-			timer.Tick(100);
+			timer.TickMilliseconds = 100;
+			timer.Tick();
 
 			Assert.AreEqual(1, _counter);
 			Assert.AreEqual(new TimeSpan(0,0,0,0,100), timer.Value );
@@ -46,10 +47,11 @@ namespace DomainTests
 		{
 			Timer timer = new Timer(new TimerState {Value = new TimeSpan(0, 0, 0, 59, 0)});
 			timer.OnMinuteTick += (sender, timer1) => { _counter++; };
+			timer.TickMilliseconds = 1000;
 
-			timer.Tick(1000);
-			timer.Tick(1000);
-			timer.Tick(1000);
+			timer.Tick();
+			timer.Tick();
+			timer.Tick();
 
 			Assert.AreEqual(1, _counter);
 			Assert.AreEqual(new TimeSpan(0, 0, 1, 2, 0), timer.Value);
@@ -60,8 +62,9 @@ namespace DomainTests
 		{
 			Timer timer = new Timer(new TimerState());
 			timer.OnTick += Coutn;
+			timer.TickMilliseconds = 10;
 
-			timer.Start(10);
+			timer.Start();
 			Thread.Sleep(150);
 			// ReSharper disable once DelegateSubtraction
 			timer.OnTick -= Coutn;
@@ -78,10 +81,12 @@ namespace DomainTests
 		{
 			Timer timer = new Timer(new TimerState());
 			timer.OnTick += (sender, args) => { _counter++; };
+			timer.TickMilliseconds = 10;
 
-			timer.Start(10);
+			timer.Start();
 			Thread.Sleep(100);
 			timer.Stop();
+			Thread.Sleep(100);
 			int ticks = _counter;
 			Thread.Sleep(100);
 

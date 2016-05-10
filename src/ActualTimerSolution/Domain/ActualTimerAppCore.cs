@@ -15,7 +15,11 @@ namespace Kobsky.ActualTimer
 		/// <summary xml:lang="ru">
 		/// Время в миллисекундах, определяющие интервал срабатывания таймера
 		/// </summary>
-		public int TickMilliseconds { get; set; } = 200;
+		public int TickMilliseconds
+		{
+			get { return _timer.TickMilliseconds; }
+			set { _timer.TickMilliseconds = value; }
+		}
 
 		/// <summary>to do</summary>
 		/// <summary xml:lang="ru">
@@ -66,7 +70,7 @@ namespace Kobsky.ActualTimer
 		{
 			if (OnTick != null) _timer.OnTick += OnTick;
 			_timer.OnMinuteTick += SaveTimer;
-			_timer.Start(TickMilliseconds);
+			_timer.Start();
 			OnStartStop?.Invoke(this,true);
 		}
 

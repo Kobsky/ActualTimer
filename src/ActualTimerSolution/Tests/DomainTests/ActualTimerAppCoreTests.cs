@@ -68,13 +68,15 @@ namespace DomainTests
 			core.Start();
 			Thread.Sleep(350);
 			core.Stop();
+			Thread.Sleep(350);
 
 			core.TickMilliseconds = 200;
 			core.Start();
 			Thread.Sleep(350);
 			core.Stop();
+			Thread.Sleep(350);
 
-			Assert.AreEqual(new TimeSpan(0, 0, 0, 0, 500), core.Value);
+			Assert.AreEqual(new TimeSpan(0, 0, 0, 0, 800), core.Value);
 		}
 
 		[Test]
