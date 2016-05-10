@@ -34,7 +34,7 @@ SaveOrUpdate(TimerState):void
 ~OnMinuteTick:Action&lt;Timer&gt;
 -
 ~Tick(int):void
-+Start(int):void
++Start():void
 +Stop():void
 +Dispose():void</panel_attributes>
     <additional_attributes/>
@@ -42,9 +42,9 @@ SaveOrUpdate(TimerState):void
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>510</x>
+      <x>460</x>
       <y>320</y>
-      <w>190</w>
+      <w>240</w>
       <h>200</h>
     </coordinates>
     <panel_attributes>ActualTimerAppCore
@@ -54,7 +54,7 @@ SaveOrUpdate(TimerState):void
 -Timer
 -TimerRepository
 +OnTick:EventHandler
-+OnStartStop:Action&lt;bool&gt;
++OnStartStop:EventHandler&lt;bool&gt;
 -
 +Ctor(ITimerRepository)
 +Start():void
@@ -68,12 +68,12 @@ SaveOrUpdate(TimerState):void
     <coordinates>
       <x>380</x>
       <y>390</y>
-      <w>150</w>
+      <w>100</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1</panel_attributes>
-    <additional_attributes>10.0;10.0;130.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
