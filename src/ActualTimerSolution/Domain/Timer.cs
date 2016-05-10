@@ -6,7 +6,7 @@ namespace Kobsky.ActualTimer
 	/// <summary xml:lang="ru">
 	/// Таймер который использует <see cref="ActualTimerAppCore"/>
 	/// </summary>
-	public sealed class Timer:IDisposable
+	internal sealed class Timer:IDisposable
 	{
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
@@ -16,15 +16,27 @@ namespace Kobsky.ActualTimer
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
+		/// Календарная дата, которую использует таймер
+		/// </summary>
+		public DateTime Date { get; set; }
+
+		/// <summary>to do </summary>
+		/// <summary xml:lang="ru">
+		/// Возвращает TimerState с текущими занчениями таймера
+		/// </summary>
+		public TimerState State => new TimerState {Date = Date, Value = Value};
+
+		/// <summary>to do </summary>
+		/// <summary xml:lang="ru">
 		/// Событие которое генерируется при каждом тике таймера
 		/// </summary>
-		internal EventHandler OnTick;
+		public EventHandler OnTick;
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
 		/// Событие которое генериуется при приросте таймера на минуту
 		/// </summary>
-		internal EventHandler<Timer> OnMinuteTick;
+		public EventHandler<Timer> OnMinuteTick;
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
@@ -38,6 +50,16 @@ namespace Kobsky.ActualTimer
 		/// </summary>
 		private System.Threading.Timer _timer;
 
+		/// <summary>
+		/// Конструктор принимающий TimerState для восстановления значений таймера
+		/// </summary>
+		/// <param name="state"></param>
+		public Timer(TimerState state)
+		{
+			Value = state.Value;
+			Date = state.Date;
+		}
+
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
 		/// Метод вызывается для изменения текущего значения таймера
@@ -48,7 +70,7 @@ namespace Kobsky.ActualTimer
 		/// <see cref="int"/> значение миллисекунд, на которое надо изменить текущее значение таймера
 		/// </para>
 		/// </param>
-		internal void Tick(int milliseconds)
+		public void Tick(int milliseconds)
 		{
 			_previous = Value;
 			Value = Value.Add(new TimeSpan(0,0,0,0,milliseconds));

@@ -4,8 +4,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>80</x>
-      <y>10</y>
+      <x>410</x>
+      <y>30</y>
       <w>140</w>
       <h>30</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>0</x>
-      <y>60</y>
+      <x>330</x>
+      <y>80</y>
       <w>20</w>
       <h>20</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>10</x>
-      <y>50</y>
+      <x>340</x>
+      <y>70</y>
       <w>150</w>
       <h>40</h>
     </coordinates>
@@ -38,8 +38,8 @@ Start()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>140</x>
-      <y>30</y>
+      <x>470</x>
+      <y>50</y>
       <w>30</w>
       <h>60</h>
     </coordinates>
@@ -49,8 +49,8 @@ Start()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>140</x>
-      <y>70</y>
+      <x>470</x>
+      <y>90</y>
       <w>20</w>
       <h>240</h>
     </coordinates>
@@ -60,8 +60,8 @@ Start()</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>510</x>
-      <y>10</y>
+      <x>840</x>
+      <y>30</y>
       <w>100</w>
       <h>30</h>
     </coordinates>
@@ -71,8 +71,8 @@ Start()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
-      <y>30</y>
+      <x>880</x>
+      <y>50</y>
       <w>30</w>
       <h>150</h>
     </coordinates>
@@ -82,8 +82,8 @@ Start()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>150</x>
-      <y>80</y>
+      <x>480</x>
+      <y>100</y>
       <w>430</w>
       <h>40</h>
     </coordinates>
@@ -94,20 +94,20 @@ OnTick+=OnTick</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>150</x>
-      <y>110</y>
+      <x>480</x>
+      <y>130</y>
       <w>430</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-OnMinuteTick += { TimerRepository.SaveOrUpdate }</panel_attributes>
+OnMinuteTick += SaveTimer</panel_attributes>
     <additional_attributes>410.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>150</x>
-      <y>190</y>
+      <x>480</x>
+      <y>210</y>
       <w>220</w>
       <h>70</h>
     </coordinates>
@@ -118,8 +118,8 @@ OnStartStop(this,true)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>160</x>
-      <y>240</y>
+      <x>490</x>
+      <y>260</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -129,8 +129,8 @@ OnStartStop(this,true)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>150</x>
-      <y>140</y>
+      <x>480</x>
+      <y>160</y>
       <w>420</w>
       <h>40</h>
     </coordinates>
@@ -141,8 +141,8 @@ Start(TickMilliseconds)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>140</x>
-      <y>300</y>
+      <x>470</x>
+      <y>320</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -152,8 +152,8 @@ Start(TickMilliseconds)</panel_attributes>
   <element>
     <id>UMLFrame</id>
     <coordinates>
-      <x>460</x>
-      <y>180</y>
+      <x>790</x>
+      <y>200</y>
       <w>310</w>
       <h>120</h>
     </coordinates>
@@ -164,8 +164,8 @@ Start(TickMilliseconds)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>550</x>
-      <y>160</y>
+      <x>880</x>
+      <y>180</y>
       <w>20</w>
       <h>160</h>
     </coordinates>
@@ -175,8 +175,8 @@ Start(TickMilliseconds)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>570</x>
-      <y>230</y>
+      <x>900</x>
+      <y>250</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -186,8 +186,8 @@ Start(TickMilliseconds)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>190</y>
+      <x>890</x>
+      <y>210</y>
       <w>210</w>
       <h>60</h>
     </coordinates>
@@ -198,8 +198,8 @@ Tick(TickMilliseconds)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>550</x>
-      <y>310</y>
+      <x>880</x>
+      <y>330</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -209,8 +209,8 @@ Tick(TickMilliseconds)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>620</x>
-      <y>140</y>
+      <x>950</x>
+      <y>160</y>
       <w>70</w>
       <h>60</h>
     </coordinates>
@@ -220,12 +220,205 @@ Tick(TickMilliseconds)</panel_attributes>
   <element>
     <id>UMLNote</id>
     <coordinates>
-      <x>650</x>
-      <y>110</y>
+      <x>980</x>
+      <y>130</y>
       <w>180</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>once per TickMilliseconds</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>400</x>
+      <y>490</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ActualTimerAppCore
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>320</x>
+      <y>540</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>530</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+SaveTimer()</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>510</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>460</x>
+      <y>550</y>
+      <w>20</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>600</x>
+      <y>490</y>
+      <w>140</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Timer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>790</x>
+      <y>490</y>
+      <w>170</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ITimerStateRepository</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>510</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>510</y>
+      <w>30</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>660</x>
+      <y>570</y>
+      <w>20</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>550</y>
+      <w>210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+State</panel_attributes>
+    <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>610</y>
+      <w>210</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;.
+state:TimerState</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>660</x>
+      <y>620</y>
+      <w>30</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>860</x>
+      <y>660</y>
+      <w>20</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>730</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>860</x>
+      <y>710</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>470</x>
+      <y>640</y>
+      <w>410</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+SaveOrUpdate(state)
+</panel_attributes>
+    <additional_attributes>390.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

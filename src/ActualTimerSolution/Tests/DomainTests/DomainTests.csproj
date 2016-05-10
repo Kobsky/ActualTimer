@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ActualTimerAppCoreTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimerStateTests.cs" />
     <Compile Include="TimerTests.cs" />
   </ItemGroup>
   <ItemGroup>

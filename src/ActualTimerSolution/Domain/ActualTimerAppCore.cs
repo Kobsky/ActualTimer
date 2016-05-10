@@ -4,12 +4,12 @@ namespace Kobsky.ActualTimer
 {
 	/// <summary>to do</summary>
 	/// <summary xml:lang="ru">
-	/// Представляет собой фасад для библиотеки, все что нужно пользователю это реализовать в своем коде <see cref="ITimerRepository"/> и создать экземпляр данного класса
+	/// Представляет собой фасад для библиотеки, все что нужно пользователю это реализовать в своем коде <see cref="ITimerStateRepository"/> и создать экземпляр данного класса
 	/// </summary>
-	public sealed class ActualTimerAppCore
+	public sealed class ActualTimerAppCore:IDisposable
 	{
-		internal Timer Timer { get; set; }
-		internal ITimerRepository TimerRepository { get; set; }
+		private readonly Timer _timer;
+		private readonly ITimerStateRepository _timerRepository;
 
 		/// <summary>to do</summary>
 		/// <summary xml:lang="ru">
@@ -21,7 +21,7 @@ namespace Kobsky.ActualTimer
 		/// <summary xml:lang="ru">
 		/// Текущее значение таймера
 		/// </summary>
-		public TimeSpan Value => Timer.Value;
+		public TimeSpan Value => _timer.Value;
 
 		/// <summary>to do</summary>
 		/// <summary xml:lang="ru">
@@ -41,27 +41,20 @@ namespace Kobsky.ActualTimer
 		/// </summary>
 		/// <param name="timerRepository">
 		/// to do
-		/// <para>Экземпляр <see cref="ITimerRepository"/> который должен предоставить пользователь, не может быть <c>null</c></para>
+		/// <para>Экземпляр <see cref="ITimerStateRepository"/> который должен предоставить пользователь, не может быть <c>null</c></para>
 		/// </param>
 		/// <exception cref="ArgumentNullException">
 		/// to do
 		/// <para>Возникает если в аргумент <paramref name="timerRepository"/> был передан <c>null</c></para>
 		/// </exception>
-		/// <exception cref="NullReturnNotAllowedException">
-		/// to do
-		/// <para>Возникает если <c>timerRepository.GetTodayOrDefault()</c> возвращает <c>null</c></para>
-		/// </exception>
-		public ActualTimerAppCore(ITimerRepository timerRepository)
+		public ActualTimerAppCore(ITimerStateRepository timerRepository)
 		{
 			if(null == timerRepository)
 				throw new ArgumentNullException(nameof(timerRepository));
 
-			TimerRepository = timerRepository;
+			_timerRepository = timerRepository;
 
-			var tempTimer = timerRepository.LoadTodayOrDefault();
-			if (null == tempTimer)
-				throw new NullReturnNotAllowedException("ITimerRepository.GetTodayOrDefault method return null");
-			Timer = tempTimer;
+			_timer = new Timer(_timerRepository.LoadTodayOrDefault());
 
 		}
 
@@ -71,11 +64,18 @@ namespace Kobsky.ActualTimer
 		/// </summary>
 		public void Start()
 		{
-			if (OnTick != null) Timer.OnTick += OnTick;
-			Timer.OnMinuteTick += (sender, timer) => { TimerRepository.SaveOrUpdate(timer); };
-			Timer.Start(TickMilliseconds);
+			if (OnTick != null) _timer.OnTick += OnTick;
+			_timer.OnMinuteTick += SaveTimer;
+			_timer.Start(TickMilliseconds);
 			OnStartStop?.Invoke(this,true);
 		}
+
+		private void SaveTimer(object sender, Timer timer)
+		{
+			TimerState state = timer.State;
+			_timerRepository.SaveOrUpdate(state);
+		}
+
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
@@ -83,8 +83,17 @@ namespace Kobsky.ActualTimer
 		/// </summary>
 		public void Stop()
 		{
-			Timer.Stop();
+			_timer.Stop();
 			OnStartStop?.Invoke(this,false);
+		}
+
+		/// <summary>to do </summary>
+		/// <summary xml:lang="ru">
+		/// Освобождает внутренние ресурсы
+		/// </summary>
+		public void Dispose()
+		{
+			_timer.Dispose();
 		}
 	}
 }
