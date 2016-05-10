@@ -5,7 +5,7 @@
     <id>UMLClass</id>
     <coordinates>
       <x>150</x>
-      <y>320</y>
+      <y>180</y>
       <w>240</w>
       <h>100</h>
     </coordinates>
@@ -14,6 +14,7 @@ ITimerStateRepository
 -
 -
 LoadTodayOrDefault():TimerState
+LoadAll():TimerState[]
 SaveOrUpdate(TimerState):void
 </panel_attributes>
     <additional_attributes/>
@@ -22,7 +23,7 @@ SaveOrUpdate(TimerState):void
     <id>UMLClass</id>
     <coordinates>
       <x>840</x>
-      <y>320</y>
+      <y>180</y>
       <w>200</w>
       <h>190</h>
     </coordinates>
@@ -43,9 +44,9 @@ SaveOrUpdate(TimerState):void
     <id>UMLClass</id>
     <coordinates>
       <x>460</x>
-      <y>320</y>
+      <y>180</y>
       <w>240</w>
-      <h>200</h>
+      <h>220</h>
     </coordinates>
     <panel_attributes>ActualTimerAppCore
 -
@@ -53,6 +54,7 @@ SaveOrUpdate(TimerState):void
 +-Value:TimeSpan
 -Timer
 -TimerRepository
++-Chart
 +OnTick:EventHandler
 +OnStartStop:EventHandler&lt;bool&gt;
 -
@@ -67,7 +69,7 @@ SaveOrUpdate(TimerState):void
     <id>Relation</id>
     <coordinates>
       <x>380</x>
-      <y>390</y>
+      <y>250</y>
       <w>100</w>
       <h>40</h>
     </coordinates>
@@ -79,7 +81,7 @@ m1=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>690</x>
-      <y>370</y>
+      <y>230</y>
       <w>170</w>
       <h>40</h>
     </coordinates>
@@ -91,7 +93,7 @@ m2=1</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>690</x>
-      <y>270</y>
+      <y>130</y>
       <w>100</w>
       <h>100</h>
     </coordinates>
@@ -102,7 +104,7 @@ m2=1</panel_attributes>
     <id>UMLNote</id>
     <coordinates>
       <x>700</x>
-      <y>230</y>
+      <y>90</y>
       <w>290</w>
       <h>50</h>
     </coordinates>
@@ -114,7 +116,7 @@ TickMilliseconds = Timer.TickMilliseconds</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>1120</x>
-      <y>320</y>
+      <y>180</y>
       <w>140</w>
       <h>70</h>
     </coordinates>
@@ -123,5 +125,137 @@ TickMilliseconds = Timer.TickMilliseconds</panel_attributes>
 +Date:DateTime
 +Value:TimeSpan</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>280</x>
+      <y>500</y>
+      <w>170</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>ChartEntry
+--
++Period:ChartPeriod
++Measure:ChartMeasure
++Value:Int
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>190</x>
+      <y>320</y>
+      <w>200</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>Chart
+--
+-TimerStateRepository
+--
++Ctor(ITimerStateRepository)
++GetData(ChartPeriod, 
+    ChartMeasure):ChartEntry[]
+-Calculate(ChartPeriod, 
+    ChartMeasure, TimerState[])
+       :ChartEntry[]
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>170</x>
+      <y>500</y>
+      <w>100</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumerator&gt;&gt;
+ChartMeasure
+--
+Minute
+Hour
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>50</x>
+      <y>460</y>
+      <w>100</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enumerator&gt;&gt;
+ChartPeriod
+--
+Day
+Weak
+Month
+Year
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>270</y>
+      <w>100</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;60.0;50.0;60.0;50.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>460</x>
+      <y>270</y>
+      <w>180</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>
+fg=blue
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>290</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>AT-6 prepare Watch Statistic UseCase 
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>150</x>
+      <y>240</y>
+      <w>200</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>110</x>
+      <y>250</y>
+      <w>100</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1</panel_attributes>
+    <additional_attributes>80.0;100.0;10.0;100.0;10.0;10.0;40.0;10.0</additional_attributes>
   </element>
 </diagram>
