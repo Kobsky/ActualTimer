@@ -49,6 +49,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActualTimerAppCoreTests.cs" />
+    <Compile Include="Charts\ChartEntryTests.cs" />
+    <Compile Include="Charts\ChartTests.cs" />
+    <Compile Include="Charts\DayStrategyTests.cs" />
+    <Compile Include="Charts\MonthStrategyTests.cs" />
+    <Compile Include="Charts\TimerStateEnumerableExtensionTests.cs" />
+    <Compile Include="Charts\WeekStrategyTests.cs" />
+    <Compile Include="Charts\YearStrategyTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimerStateTests.cs" />
     <Compile Include="TimerTests.cs" />

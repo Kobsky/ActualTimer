@@ -13,6 +13,13 @@
 
 		/// <summary>to do</summary>
 		/// <summary xml:lang="ru">
+		/// Загружает все, когда либо сохраненные данные таймеров
+		/// </summary>
+		/// <returns></returns>
+		TimerState[] LoadAll();
+
+		/// <summary>to do</summary>
+		/// <summary xml:lang="ru">
 		/// Сохраняет таймер, если он был сохранен ранее, то обновляет его значение.
 		/// </summary>
 		/// <param name="timer"><see cref="Timer"/></param>

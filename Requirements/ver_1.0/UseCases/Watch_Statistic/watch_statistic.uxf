@@ -4,8 +4,8 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>490</x>
-      <y>80</y>
+      <x>210</x>
+      <y>0</y>
       <w>160</w>
       <h>30</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>380</x>
-      <y>140</y>
+      <x>100</x>
+      <y>60</y>
       <w>20</w>
       <h>20</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
-      <y>130</y>
+      <x>100</x>
+      <y>50</y>
       <w>200</w>
       <h>40</h>
     </coordinates>
@@ -38,10 +38,10 @@ Chart</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>560</x>
-      <y>150</y>
+      <x>280</x>
+      <y>70</y>
       <w>20</w>
-      <h>110</h>
+      <h>230</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
@@ -49,8 +49,8 @@ Chart</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>100</y>
+      <x>280</x>
+      <y>20</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -60,7 +60,7 @@ Chart</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>800</x>
+      <x>550</x>
       <y>190</y>
       <w>80</w>
       <h>30</h>
@@ -71,42 +71,42 @@ Chart</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
+      <x>290</x>
       <y>180</y>
-      <w>250</w>
+      <w>280</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Create(ITimerStateRepository)</panel_attributes>
-    <additional_attributes>230.0;20.0;10.0;20.0</additional_attributes>
+Create(states)</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>830</x>
-      <y>210</y>
+      <x>580</x>
+      <y>270</y>
       <w>30</w>
-      <h>110</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>250</y>
+      <x>280</x>
+      <y>290</y>
       <w>30</w>
-      <h>70</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>520</x>
-      <y>370</y>
+      <x>230</x>
+      <y>400</y>
       <w>90</w>
       <h>30</h>
     </coordinates>
@@ -116,20 +116,20 @@ Create(ITimerStateRepository)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>270</x>
-      <y>420</y>
-      <w>310</w>
+      <x>90</x>
+      <y>450</y>
+      <w>200</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-GetData(ChartPeriod, ChartMeasure)</panel_attributes>
-    <additional_attributes>290.0;20.0;10.0;20.0</additional_attributes>
+GetData(ChartPeriod)</panel_attributes>
+    <additional_attributes>180.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>390</y>
+      <x>270</x>
+      <y>420</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
@@ -139,8 +139,8 @@ GetData(ChartPeriod, ChartMeasure)</panel_attributes>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>260</x>
-      <y>430</y>
+      <x>90</x>
+      <y>460</y>
       <w>20</w>
       <h>20</h>
     </coordinates>
@@ -150,19 +150,30 @@ GetData(ChartPeriod, ChartMeasure)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>560</x>
-      <y>440</y>
+      <x>270</x>
+      <y>470</y>
       <w>20</w>
-      <h>240</h>
+      <h>510</h>
     </coordinates>
     <panel_attributes/>
     <additional_attributes/>
   </element>
   <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>970</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>690</x>
-      <y>370</y>
+      <x>430</x>
+      <y>0</y>
       <w>150</w>
       <h>30</h>
     </coordinates>
@@ -172,8 +183,8 @@ GetData(ChartPeriod, ChartMeasure)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>390</y>
+      <x>490</x>
+      <y>20</y>
       <w>30</w>
       <h>100</h>
     </coordinates>
@@ -183,20 +194,20 @@ GetData(ChartPeriod, ChartMeasure)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>450</y>
-      <w>210</w>
+      <x>290</x>
+      <y>80</y>
+      <w>220</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
 LoadAll()</panel_attributes>
-    <additional_attributes>190.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>760</x>
-      <y>470</y>
+      <x>490</x>
+      <y>100</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -206,43 +217,247 @@ LoadAll()</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>510</y>
-      <w>210</w>
+      <x>490</x>
+      <y>150</y>
+      <w>30</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>140</y>
+      <w>220</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;.
 states:TimerState[]</panel_attributes>
-    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
+    <id>UMLGeneric</id>
     <coordinates>
-      <x>760</x>
-      <y>520</y>
-      <w>30</w>
-      <h>200</h>
+      <x>430</x>
+      <y>400</y>
+      <w>220</w>
+      <h>30</h>
     </coordinates>
-    <panel_attributes>lt=.</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+    <panel_attributes>_TimerStateEnumerableExtension_</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>570</x>
-      <y>570</y>
-      <w>440</w>
-      <h>60</h>
+      <x>280</x>
+      <y>470</y>
+      <w>260</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;-
-Calculate(ChartPeriod, ChartMeasure, states): ChartEntry[]</panel_attributes>
-    <additional_attributes>30.0;40.0;60.0;40.0;60.0;10.0;10.0;10.0</additional_attributes>
+ToChartEntryArray(ChartPeriod)</panel_attributes>
+    <additional_attributes>240.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>420</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>920</y>
+      <w>260</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;.
+entries:ChartEntry[]</panel_attributes>
+    <additional_attributes>10.0;20.0;240.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>520</x>
+      <y>490</y>
+      <w>20</w>
+      <h>450</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>930</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
       <x>580</x>
-      <y>610</y>
+      <y>220</y>
+      <w>20</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>560</x>
+      <y>630</y>
+      <w>20</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>580</y>
+      <w>200</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+_MinDate():DateTime_</panel_attributes>
+    <additional_attributes>30.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>690</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+_MaxDate():DateTime_</panel_attributes>
+    <additional_attributes>30.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>560</x>
+      <y>740</y>
+      <w>20</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>510</y>
+      <w>260</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+_CreateTimeLine(ChartPeriod)_
+    :timeLine ChartEntry []</panel_attributes>
+    <additional_attributes>30.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>540</x>
+      <y>560</y>
+      <w>20</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>820</y>
+      <w>320</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+_Allocate(timeLine): entries ChartEntry[]_</panel_attributes>
+    <additional_attributes>30.0;50.0;60.0;50.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>540</x>
+      <y>870</y>
+      <w>20</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>110</x>
+      <y>1060</y>
+      <w>370</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>For each</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLSpecialState</id>
+    <coordinates>
+      <x>140</x>
+      <y>1130</y>
+      <w>20</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>type=initial</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>350</x>
+      <y>1070</y>
+      <w>100</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>ChartEntry</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>1090</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>390</x>
+      <y>1140</y>
       <w>20</w>
       <h>60</h>
     </coordinates>
@@ -252,12 +467,37 @@ Calculate(ChartPeriod, ChartMeasure, states): ChartEntry[]</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>670</y>
+      <x>140</x>
+      <y>1120</y>
+      <w>270</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+CalculateValue(ChartMeasure)</panel_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>1190</y>
       <w>30</w>
       <h>70</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>1180</y>
+      <w>280</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;.
+int
+</panel_attributes>
+    <additional_attributes>10.0;20.0;260.0;20.0</additional_attributes>
   </element>
 </diagram>

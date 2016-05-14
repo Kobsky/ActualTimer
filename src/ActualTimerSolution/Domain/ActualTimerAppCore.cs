@@ -1,4 +1,5 @@
 ﻿using System;
+using Kobsky.ActualTimer.Charts;
 
 namespace Kobsky.ActualTimer
 {
@@ -26,6 +27,12 @@ namespace Kobsky.ActualTimer
 		/// Текущее значение таймера
 		/// </summary>
 		public TimeSpan Value => _timer.Value;
+
+		/// <summary>to do</summary>
+		/// <summary xml:lang="ru">
+		/// Предоставляет объект граффика
+		/// </summary>
+		public Chart Chart => new Chart(_timerRepository.LoadAll());
 
 		/// <summary>to do</summary>
 		/// <summary xml:lang="ru">
@@ -74,12 +81,16 @@ namespace Kobsky.ActualTimer
 			OnStartStop?.Invoke(this,true);
 		}
 
+		/// <summary>
+		/// Сохранияет значение таймера в постоянную память
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="timer"></param>
 		private void SaveTimer(object sender, Timer timer)
 		{
 			TimerState state = timer.State;
 			_timerRepository.SaveOrUpdate(state);
 		}
-
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">

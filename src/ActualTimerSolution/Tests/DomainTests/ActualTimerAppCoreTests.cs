@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Kobsky.ActualTimer;
+using Kobsky.ActualTimer.Charts;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -136,6 +137,18 @@ namespace DomainTests
 			core.Stop();
 
 			timerRepository.Received(1).SaveOrUpdate(Arg.Any<TimerState>());
+		}
+
+		[Test]
+		public void ChartTest()
+		{
+			var timerRepository = Substitute.For<ITimerStateRepository>();
+			ActualTimerAppCore core = new ActualTimerAppCore(timerRepository);
+
+			Chart chart = core.Chart;
+
+			Assert.IsNotNull(chart);
+			timerRepository.Received().LoadAll();
 		}
 
 		[Test]
