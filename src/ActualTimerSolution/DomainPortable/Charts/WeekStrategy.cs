@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 
 namespace Kobsky.ActualTimer.Charts
 {
@@ -12,16 +11,14 @@ namespace Kobsky.ActualTimer.Charts
 	{
 		public override ChartEntry[] Algorithm(TimerState[] states)
 		{
-			Calendar calendar = new GregorianCalendar();
-
 			DateTime startMonday = states.MinDate();
-			while (calendar.GetDayOfWeek(startMonday) != DayOfWeek.Monday)
+			while (startMonday.DayOfWeek != DayOfWeek.Monday)
 			{
 				startMonday = startMonday.AddDays(-1);
 			}
 
 			DateTime endSunday = states.MaxDate();
-			while (calendar.GetDayOfWeek(endSunday) != DayOfWeek.Sunday)
+			while (endSunday.DayOfWeek != DayOfWeek.Sunday)
 			{
 				endSunday = endSunday.AddDays(1);
 			}
@@ -32,7 +29,7 @@ namespace Kobsky.ActualTimer.Charts
 			for (int i = 0; i < weeks; i++)
 			{
 				entries.Add(new ChartEntry {From = startMonday, To = startMonday.AddDays(6)});
-				startMonday = calendar.AddWeeks(startMonday, 1);
+				startMonday = startMonday.AddDays(7);
 			}
 
 			return entries.ToArray();

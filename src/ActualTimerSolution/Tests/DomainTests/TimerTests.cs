@@ -102,16 +102,6 @@ namespace DomainTests
 		}
 
 		[Test]
-		public void DisposableTest()
-		{
-			IDisposable timer = new Timer(new TimerState());
-
-			timer.Dispose();
-
-			Assert.IsNotNull(timer);
-		}
-
-		[Test]
 		public void StateProperty()
 		{
 			Timer timer = new Timer(new TimerState

@@ -7,7 +7,7 @@ namespace Kobsky.ActualTimer
 	/// <summary xml:lang="ru">
 	/// Представляет собой фасад для библиотеки, все что нужно пользователю это реализовать в своем коде <see cref="ITimerStateRepository"/> и создать экземпляр данного класса
 	/// </summary>
-	public sealed class ActualTimerAppCore:IDisposable
+	public sealed class ActualTimerAppCore
 	{
 		private readonly Timer _timer;
 		private readonly ITimerStateRepository _timerRepository;
@@ -100,15 +100,6 @@ namespace Kobsky.ActualTimer
 		{
 			_timer.Stop();
 			OnStartStop?.Invoke(this,false);
-		}
-
-		/// <summary>to do </summary>
-		/// <summary xml:lang="ru">
-		/// Освобождает внутренние ресурсы
-		/// </summary>
-		public void Dispose()
-		{
-			_timer.Dispose();
 		}
 	}
 }

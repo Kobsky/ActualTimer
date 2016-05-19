@@ -6,7 +6,6 @@ namespace Kobsky.ActualTimer
 	/// <summary xml:lang="ru">
 	/// Представляет из себя state для <see cref="Timer"/> с помощью которого он может сохранять и восстанавливать свои значения
 	/// </summary>
-	[Serializable]
 	public struct TimerState: IEquatable<TimerState>
 	{
 		private TimeSpan _value;

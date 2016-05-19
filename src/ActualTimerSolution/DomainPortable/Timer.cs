@@ -6,7 +6,7 @@ namespace Kobsky.ActualTimer
 	/// <summary xml:lang="ru">
 	/// Таймер который использует <see cref="ActualTimerAppCore"/>
 	/// </summary>
-	internal sealed class Timer:IDisposable
+	internal sealed class Timer
 	{
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
@@ -52,9 +52,9 @@ namespace Kobsky.ActualTimer
 
 		/// <summary>to do </summary>
 		/// <summary xml:lang="ru">
-		/// <see cref="System.Threading.Timer"/> используемый <see cref="Timer"/> за кулисами, для работы
+		/// Значение таймера при предыдущем тике
 		/// </summary>
-		private readonly System.Threading.Timer _timer;
+		private volatile bool _isRun;
 
 		/// <summary>
 		/// Конструктор принимающий TimerState для восстановления значений таймера
@@ -64,7 +64,6 @@ namespace Kobsky.ActualTimer
 		{
 			Value = state.Value;
 			Date = state.Date;
-			_timer = new System.Threading.Timer(o => { Tick(); });
 		}
 
 		/// <summary>to do </summary>
@@ -88,7 +87,15 @@ namespace Kobsky.ActualTimer
 		/// </summary>
 		public void Start()
 		{
-			_timer.Change(TickMilliseconds, TickMilliseconds);
+			_isRun = true;
+			new System.Threading.Tasks.TaskFactory().StartNew(() =>
+			{
+				while (_isRun)
+				{
+					System.Threading.Tasks.Task.Delay(TickMilliseconds).Wait();
+					Tick();
+				}
+			});
 		}
 
 		/// <summary>to do </summary>
@@ -97,17 +104,7 @@ namespace Kobsky.ActualTimer
 		/// </summary>
 		public void Stop()
 		{
-			_timer.Change(0, -1);
-		}
-
-		/// <summary>to do </summary>
-		/// <summary xml:lang="ru">
-		/// Так как класс за кулисами использует <see cref="System.Threading.Timer"/> то необходимо реализовать <c>Dispose</c>
-		/// </summary>
-		public void Dispose()
-		{
-			// ReSharper disable once UseNullPropagation
-			if (_timer != null) _timer.Dispose();
+			_isRun = false;
 		}
 	}
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 
 namespace Kobsky.ActualTimer.Charts
 {
@@ -12,23 +11,29 @@ namespace Kobsky.ActualTimer.Charts
 	{
 		public override ChartEntry[] Algorithm(TimerState[] states)
 		{
-			Calendar calendar = new GregorianCalendar();
-
 			DateTime startDate = states.MinDate();
 			startDate = new DateTime(startDate.Year, startDate.Month, 1);
 
-			DateTime endDate = states.MaxDate();
-			int lastDayNumber = calendar.GetDayOfMonth(endDate);
-			endDate = new DateTime(endDate.Year, endDate.Month, lastDayNumber);
+			DateTime endDate = GetLastDayOfMonth(states.MaxDate());
 
 			List<ChartEntry> entries = new List<ChartEntry>();
 			while (startDate < endDate)
 			{
-				int dayInMonth = calendar.GetDaysInMonth(startDate.Year, startDate.Month);
-				entries.Add(new ChartEntry {From = startDate, To = startDate.AddDays(dayInMonth -1)});
+				entries.Add(new ChartEntry {From = startDate, To = GetLastDayOfMonth(startDate)});
 				startDate = startDate.AddMonths(1);
 			}
 			return entries.ToArray();
+		}
+
+		private static DateTime GetLastDayOfMonth(DateTime date)
+		{
+			DateTime result = date;
+			int month = result.Month;
+			while (month == result.Month)
+			{
+				result = result.AddDays(1);
+			}
+			return result.AddDays(-1);
 		}
 	}
 }

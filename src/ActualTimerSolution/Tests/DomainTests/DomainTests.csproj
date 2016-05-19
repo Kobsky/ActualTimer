@@ -64,9 +64,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\Domain.csproj">
-      <Project>{23d2dd2d-f091-4b7e-b5cd-ce8a378933fe}</Project>
-      <Name>Domain</Name>
+    <ProjectReference Include="..\..\DomainPortable\DomainPortable.csproj">
+      <Project>{d72508f7-6239-4f17-af50-930c2035dca0}</Project>
+      <Name>DomainPortable</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

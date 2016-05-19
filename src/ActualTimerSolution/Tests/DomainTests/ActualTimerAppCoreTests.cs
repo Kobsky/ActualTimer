@@ -150,16 +150,5 @@ namespace DomainTests
 			Assert.IsNotNull(chart);
 			timerRepository.Received().LoadAll();
 		}
-
-		[Test]
-		public void DisposableTest()
-		{
-			var timerRepository = Substitute.For<ITimerStateRepository>();
-			timerRepository.LoadTodayOrDefault().Returns(new TimerState());
-
-			IDisposable core = new ActualTimerAppCore(timerRepository);
-
-			Assert.DoesNotThrow(()=> {core.Dispose();});
-		}
 	}
 }

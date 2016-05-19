@@ -79,7 +79,7 @@ namespace DomainTests.Charts
 
 			ChartEntry[] entries = TimerStateEnumerableExtension.CreateTimeLine(states.AsEnumerable(), ChartPeriod.Month);
 
-			Assert.AreEqual(24, entries.Length);
+			Assert.AreEqual(25, entries.Length);
 
 		}
 
